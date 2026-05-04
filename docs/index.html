@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Super Hexagon Vita Bundler</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Super Hexagon Vita Bundler</h1>
+  </div>
+</header>
+
+<main>
+  <section class="picker">
+    <div class="dropzone" id="apk-drop">
+      <input type="file" id="apk-input" accept=".apk,application/vnd.android.package-archive" hidden />
+      <div class="drop-label">
+        <span class="slot">APK</span>
+        <span class="hint">Drop <code>superhexagon-humble-release-v2.7.7.apk</code> here or click to choose</span>
+        <span class="file-name" id="apk-name">No file selected</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="hash-warning" class="hash-warning" hidden role="alert">
+    <p>
+      This APK does not match the checksum this bundler was tested with. The build may still work,
+      but use the Humble Android release v2.7.7 if the Vita app fails to boot.
+    </p>
+  </div>
+
+  <section class="actions">
+    <button id="build-btn" disabled>Build Vita installer</button>
+    <div class="progress" id="progress" hidden>
+      <div class="bar" id="bar"></div>
+      <div class="status" id="status">Starting...</div>
+    </div>
+    <div class="log" id="log" hidden></div>
+  </section>
+
+  <section class="howto">
+    <h2>How to install on your Vita</h2>
+    <p>
+      The bundler produces <code>superhexagon.zip</code>. Inside it are the loader VPK and a
+      <code>superhexagon/</code> data folder extracted from your APK. Super Hexagon can be bought from
+      <a href="https://terrycavanagh.itch.io/super-hexagon">Terry Cavanagh on itch.io</a>.
+    </p>
+    <ol>
+      <li>Unzip <code>superhexagon.zip</code> on your computer.</li>
+      <li>Upload the <code>superhexagon/</code> folder to <code>ux0:data/</code> so the Vita has
+        <code>ux0:data/superhexagon/assets/</code> and the four required Android libraries beside it.</li>
+      <li>Copy <code>superhexagon_vita.vpk</code> to the Vita and install it with VitaShell.</li>
+      <li>Launch <strong>Super Hexagon Vita</strong> from the LiveArea.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>
+      Bundler runs entirely in-browser via
+      <a href="https://github.com/101arrowz/fflate">fflate</a>.
+    </p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js"></script>
+<script src="vendor/pako_deflate.min.js"></script>
+<script src="vendor/UPNG.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
