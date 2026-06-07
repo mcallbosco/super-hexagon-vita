@@ -2,6 +2,8 @@
 
 ### → To install, go to **[superhexagon.mcallbos.co](https://superhexagon.mcallbos.co/)** ←
 
+![Screenshot](sh-readme.jpg)
+
 Drop in your Android APK in the browser and it'll hand you back
 `superhexagon.zip` containing the ready-to-install VPK and a `superhexagon/`
 data folder. Nothing leaves your machine. This repo is the source code behind
