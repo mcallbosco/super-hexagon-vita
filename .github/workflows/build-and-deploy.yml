@@ -19,6 +19,7 @@ concurrency:
 env:
   VITASDK: /home/runner/vitasdk-softfp
   VITASDK_CACHE_KEY: vitasdk-softfp-2026-05a
+  VITAGL_COMMIT: daeb73a97748b6107c4fc07f115a47f58f62c8c9
 
 jobs:
   build:
@@ -51,6 +52,13 @@ jobs:
 
       - name: Add VitaSDK to PATH
         run: echo "$VITASDK/bin" >> "$GITHUB_PATH"
+
+      - name: Build vitaGL (no splash, pinned)
+        run: |
+          git clone https://github.com/Rinnegatamante/vitaGL.git /tmp/vitaGL
+          git -C /tmp/vitaGL checkout "$VITAGL_COMMIT"
+          make -C /tmp/vitaGL NO_SPLASHSCREEN=1 SOFTFP_ABI=1 NO_DEBUG=1 -j"$(nproc)"
+          make -C /tmp/vitaGL NO_SPLASHSCREEN=1 SOFTFP_ABI=1 NO_DEBUG=1 install
 
       - name: Configure
         run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DSTANDALONE_DEMO=OFF
