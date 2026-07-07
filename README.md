@@ -4,6 +4,8 @@
 
 ![Screenshot](sh-readme.jpg)
 
+AI was used in development.
+
 Drop in your Android APK in the browser and it'll hand you back
 `superhexagon.zip` containing the ready-to-install VPK and a `superhexagon/`
 data folder. Nothing leaves your machine. This repo is the source code behind
