@@ -12,7 +12,7 @@
 	<frame id="frame3">
 		<liveitem>
 			<text origin="background" align="center" line-align="center" text-valign="bottom" margin-bottom="32">
-				<str size="22" bold="on" shadow="on" color="#ffffff">Ported by Mcall</str>
+				<str size="22" bold="on" shadow="on" color="#ffffff"></str>
 			</text>
 		</liveitem>
 	</frame>
